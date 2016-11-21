@@ -21,8 +21,8 @@ class FfmpegDriver08 extends FfmpegDriver10 {
   var $map08 = array(
       '-c:v' => '-vcodec',
       '-c:a' => '-acodec',
-      '-b:v' => '-b',
-      '-b:a' => '-ab',
+//      '-b:v' => '-b',
+//      '-b:a' => '-ab',
       '-r:v' => '-r',
       '-r:a' => '-ar',
   );

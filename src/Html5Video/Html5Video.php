@@ -303,11 +303,11 @@ class Html5Video {
     if ($encoders !== null) {
       return $encoders;
     }
-
     $args = array('-codecs');
-    if (!$this->isVersionIsGreaterOrEqual($this->getVersion(), array(0, 8))) {
-      $args = array('-formats');
-    }
+      // gfs change
+//    if (!$this->isVersionIsGreaterOrEqual($this->getVersion(), array(0, 8))) {
+//      $args = array('-encoders');
+//    }
     $lines = array();
     $errCode = $this->Process->run($this->config['ffmpeg.bin'], $args, $lines);
     if (!count($lines) || $errCode != 0) {

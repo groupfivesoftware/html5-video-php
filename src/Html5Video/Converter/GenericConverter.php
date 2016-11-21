@@ -98,6 +98,8 @@ class GenericConverter {
     }
     $this->addAdditionalOptions();
     $this->addOption('-strict', 'experimental');
+      //gfs change
+    $this->addOption('-ac', '2');
     $this->_args[] = '-y';
     $this->_args[] = $dst;
 
