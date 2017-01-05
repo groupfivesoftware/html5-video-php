@@ -133,6 +133,14 @@ class Html5Video {
         } else if (strpos($line, 'Audio:')) {
           $result['audioStreams']++;
         }
+          // gfs change
+      } else if (strpos($line, 'rotate')) {
+          $w = $result['width'] ;
+          $h = $result['height'] ;
+          if(strpos($line, '90') !== false ){
+              $result['width'] = $h;
+              $result['height'] = $w ;
+          }
       }
     }
     return $result;
@@ -403,6 +411,10 @@ class Html5Video {
   public function convert($src, $dst, $profileName, $options = array()) {
     $this->setTimeLimit();
     $this->mergeOptions($src, $dst, $options);
+      // gfs change
+      if($options['height'] > $options['width']){
+      $profileName = $profileName.'_vertical';
+    }
     $converter = $this->createConverter($options['targetFormat'], $profileName);
     $result = $converter->create($src, $dst, $options);
     return $result;
